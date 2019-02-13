@@ -11,7 +11,6 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
       debug: 'grey'
     };
     if (config.colors) {
-      console.log('should be a color', type, colorMap[type]);
       return String(type + ': ')[colorMap[type]] + log;
     } else {
       return type + ': ' + log;
