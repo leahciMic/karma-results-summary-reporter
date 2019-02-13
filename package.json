@@ -1,0 +1,26 @@
+{
+  "name": "karma-results-summary-reporter",
+  "version": "0.0.1",
+  "author": {
+    "name": "Michael Leaney",
+    "email": "leaney.michael@gmail.com"
+  },
+  "description": "A Karma plugin. Report current spec on browser crash/ disconnect. Provides full logs for each failure. Supports Travis folding.",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leahciMic/karma-results-summary-reporter"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-prettier": "^3.6.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.1"
+  },
+  "dependencies": {
+    "travis-fold": "^0.1.2"
+  }
+}

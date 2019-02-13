@@ -1,0 +1,9 @@
+{
+  "extends": ["prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-await-in-loop": ["off"],
+    "no-restricted-syntax": ["off"]
+  }
+}
