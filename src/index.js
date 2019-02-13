@@ -98,7 +98,14 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
     var output = [];
     failures.forEach(function(failure) {
       travisFold.pushStart(output, 'browser');
-      output.push('Logs for ' + failure.browser.name + ' ' + failure.specResult.fullName);
+      output.push(
+        '\nLogs for failed test:'.bgRed.white +
+          ' ' +
+          failure.browser.name.cyan +
+          ' ' +
+          failure.specResult.fullName.red +
+          '\n'
+      );
       failure.logs.forEach(function(log) {
         output.push(formatLog(log.type, log.log));
       });
