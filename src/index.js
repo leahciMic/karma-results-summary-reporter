@@ -80,7 +80,7 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
 
     this.writeCommonMsg(
       '\n\n' +
-        (browser.name + ' Had error during execution of test: ' + formatTest(currentTest)).bdRed
+        (browser.name + ' Had error during execution of test: ' + formatTest(currentTest)).bgRed
           .white +
         '\n\n'
     );
