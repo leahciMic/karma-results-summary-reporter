@@ -94,16 +94,17 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
       })
       .join('\n');
 
-    this.writeCommonMsg('\n' + travisFold.wrap('output', output) + '\n');
+    this.writeCommonMsg('\n' + travisFold.wrap('Log', output) + '\n');
   };
 
   this.onRunComplete = function() {
     perBrowserInfo = {};
     var output = [];
     failures.forEach(function(failure) {
-      travisFold.pushStart(output, 'browser');
+      travisFold.pushStart(output, 'Log');
+      output.push('Logs for ' + failure.specResult.description);
       output.push(
-        '\nLogs for failed test:'.bgRed.white +
+        'Logs for failed test:'.bgRed.white +
           ' ' +
           failure.browser.name.cyan +
           ' ' +
@@ -113,7 +114,7 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
       failure.logs.forEach(function(log) {
         output.push(formatLog(log.type, log.log));
       });
-      travisFold.pushEnd(output, 'browser');
+      travisFold.pushEnd(output, 'Log');
     });
     this.writeCommonMsg('\n' + output.join('\n') + '\n');
     failures = [];
