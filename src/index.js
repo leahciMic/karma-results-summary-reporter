@@ -79,14 +79,18 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
     }
 
     this.writeCommonMsg(
-      '\n' + browser.name + ' Had error during execution of test: ' + formatTest(currentTest) + '\n'
+      '\n\n' +
+        (browser.name + ' Had error during execution of test: ' + formatTest(currentTest)).bdRed
+          .white +
+        '\n\n'
     );
 
-    this.writeCommonMsg('Captured the following logs \n');
+    this.writeCommonMsg('Captured the following logs \n\n');
 
+    var self = this;
     var output = browserInfo.logs
       .map(function(log) {
-        this.writeCommonMsg(formatLog(log.type, log.log));
+        return formatLog(log.type, log.log);
       })
       .join('\n');
 
