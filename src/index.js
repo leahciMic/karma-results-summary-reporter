@@ -99,24 +99,23 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
 
   this.onRunComplete = function() {
     perBrowserInfo = {};
-    var output = [];
     failures.forEach(function(failure) {
       travisFold.pushStart(output, 'Log');
-      output.push('Logs for ' + failure.specResult.description);
-      output.push(
+      var output =
+        'Logs for ' +
+        failure.specResult.description +
+        '\n' +
         'Logs for failed test:'.bgRed.white +
-          ' ' +
-          failure.browser.name.cyan +
-          ' ' +
-          failure.specResult.fullName.red +
-          '\n'
-      );
-      failure.logs.forEach(function(log) {
-        output.push(formatLog(log.type, log.log));
-      });
-      travisFold.pushEnd(output, 'Log');
+        ' ' +
+        failure.browser.name.cyan +
+        ' ' +
+        failure.specResult.fullName.red +
+        '\n' +
+        failure.logs.map(function(log) {
+          return formatLog(log.type, log.log);
+        });
+      this.writeCommonMsg('\n' + travisFold.wrap('Logs', output));
     });
-    this.writeCommonMsg('\n' + output.join('\n') + '\n');
     failures = [];
   };
 
