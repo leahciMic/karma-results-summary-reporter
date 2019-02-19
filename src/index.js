@@ -100,7 +100,6 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
   this.onRunComplete = function() {
     perBrowserInfo = {};
     failures.forEach(function(failure) {
-      travisFold.pushStart(output, 'Log');
       var output =
         'Logs for ' +
         failure.specResult.description +
