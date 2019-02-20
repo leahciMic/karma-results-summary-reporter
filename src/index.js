@@ -99,6 +99,7 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
 
   this.onRunComplete = function() {
     perBrowserInfo = {};
+    var self = this;
     failures.forEach(function(failure) {
       var output =
         'Logs for ' +
@@ -113,7 +114,7 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
         failure.logs.map(function(log) {
           return formatLog(log.type, log.log);
         });
-      this.writeCommonMsg('\n' + travisFold.wrap('Logs', output));
+      self.writeCommonMsg('\n' + travisFold.wrap('Logs', output));
     });
     failures = [];
   };
