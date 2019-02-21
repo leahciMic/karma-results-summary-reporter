@@ -111,9 +111,11 @@ var SpecReporter = function(baseReporterDecorator, config, emitter) {
         ' ' +
         failure.specResult.fullName.red +
         '\n' +
-        failure.logs.map(function(log) {
-          return formatLog(log.type, log.log);
-        });
+        failure.logs
+          .map(function(log) {
+            return formatLog(log.type, log.log);
+          })
+          .join('\n');
       self.writeCommonMsg('\n' + travisFold.wrap('Logs', output));
     });
     failures = [];
