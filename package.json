@@ -1,6 +1,6 @@
 {
   "name": "karma-results-summary-reporter",
-  "version": "0.0.11",
+  "version": "0.0.13",
   "author": {
     "name": "Michael Leaney",
     "email": "leaney.michael@gmail.com"
@@ -12,7 +12,7 @@
     "url": "https://github.com/leahciMic/karma-results-summary-reporter"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=8"
   },
   "devDependencies": {
     "eslint": "^5.12.1",
